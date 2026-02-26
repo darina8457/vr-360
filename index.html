@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+  <meta charset="UTF-8">
+  <title>PerNik360 – туристически гид</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+  <!-- Leaflet CSS въшния вид на картата -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <!-- Leaflet JS функционалността на картата -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"> </script>
+
+  <link rel="icon" type="image/png" href="assets/images/favicon.jpg">
+
+</head>
+
+<body>
+
+  <div class="navbar">
+    <a href="index.html" class="nav-left">
+      <img src="assets/images/logo.png" class="nav-logo">
+      <span class="nav-title">Перник – туристически гид</span>
+    </a>
+
+
+    <div class="nav-links">
+      <a href="index.html" class="active">Начало</a>
+      <a href="landmarks.html">Забележителности</a>
+      <a href="pernik.html">Любопитни факти</a>
+      <a href="transport.html">Транспорт</a>
+      <a href="food.html">Места за хранене</a>
+      <a href="contact.html">Контакти</a>
+      <a href="vr-tour.html" class="nav-vr">
+        <i class="fa-solid fa-vr-cardboard"></i>
+      </a>
+
+    </div>
+  </div>
+
+
+  <!-- hero секция -->
+  <header class="hero">
+    <img src="assets/images/pernik.jpg" alt="Перник">
+    <div class="hero-text">
+      <h1>PerNik360</h1>
+      <p>Туристически гид и интерактивна карта на град Перник</p>
+    </div>
+  </header>
+
+  <section class="landmarks-preview">
+
+    <div class="landmarks-container">
+
+      <a href="landmarks/krakra.html" class="home-landmark-card">
+        <img src="assets/images/krakra.jpg" alt="Крепост Кракра">
+        <h3>Крепост Кракра</h3>
+      </a>
+
+      <a href="landmarks/minna-direkcia.html" class="home-landmark-card">
+        <img src="assets/images/minna-direkcia.jpg" alt="Минна дирекция">
+        <h3>Минна дирекция</h3>
+      </a>
+
+      <a href="landmarks/minen-muzei.html" class="home-landmark-card">
+        <img src="assets/images/minen-muzei.jpg" alt="Минен музей">
+        <h3>Минен музей</h3>
+      </a>
+
+      <a href="landmarks/palace.html" class="home-landmark-card">
+        <img src="assets/images/palace.jpg" alt="Дворец на културата">
+        <h3>Дворец на културата</h3>
+      </a>
+
+      <a href="landmarks/ivan-letni.html" class="home-landmark-card">
+        <img src="assets/images/ivan-letni.jpg" alt="Храм Св.Иван Летни">
+        <h3>Храм Св.Иван Летни</h3>
+      </a>
+
+      <a href="landmarks/ivan-rilski.html" class="home-landmark-card">
+        <img src="assets/images/ivan-rilski.jpg" alt="Църква Св.Иван Рилски">
+        <h3>Църква Св.Иван Рилски</h3>
+      </a>
+
+      <a href="landmarks/zemen.html" class="home-landmark-card">
+        <img src="assets/images/zemen.jpg" alt="земенски манастир">
+        <h3>Земенски манастир</h3>
+      </a>
+
+      <a href="landmarks/duhlata.html" class="home-landmark-card">
+        <img src="assets/images/duhlata.jpg" alt="Пещера Духлата">
+        <h3>Пещера Духлата</h3>
+      </a>
+
+      <a href="landmarks/jivata-voda.html" class="home-landmark-card">
+        <img src="assets/images/jivata-voda.jpg" alt="Извор Живата вода">
+        <h3>Извор Живата вода</h3>
+      </a>
+
+      <a href="landmarks/slavei.html" class="home-landmark-card">
+        <img src="assets/images/slavei.jpg" alt="Хижа Славей">
+        <h3>Хижа Славей</h3>
+      </a>
+
+      <a href="landmarks/orlite.html" class="home-landmark-card">
+        <img src="assets/images/orlite.jpg" alt="Хижа Орлите">
+        <h3>Хижа Орлите</h3>
+      </a>
+
+      <a href="landmarks/selimica.html" class="home-landmark-card">
+        <img src="assets/images/selimica.jpg" alt="Хижа Селимица">
+        <h3>Хижа Селимица</h3>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="w3-content page-content">
+
+    <section class="map-section">
+
+      <div class="map-box">
+        <h2>🗺️ Интерактивна карта на Перник</h2>
+        <div id="map"></div>
+      </div>
+      <a href="vr-tour.html" class="map-vr-btn">
+        <i class="fa-solid fa-vr-cardboard"></i>
+      </a>
+
+    </section>
+
+    <section class="info-section">
+
+      <div class="info-text">
+        <h1>Перник</h1>
+        <p>
+          Още от създаването си през 9 век градът носи името Перник. Първите сведения за уседнал живот в района на
+           Перник датират от 6000 г. пр. Хр. (ранен неолит). В годините преди да падне окончателно под властта на 
+           Византия градът служи за столица на земите между Дунав и Стара планина. Днес градът е сред 
+           индустриалните центрове на България.
+          <p><b>Население:</b> 65 799 души </p>
+          <p><b>Площ:</b> 461,1 км</p>
+          <p><b>Надморска височина:</b> 710 м</p>
+        </p>
+      </div>
+
+    </section>
+
+    <section class="features-section">
+
+      <h2 class="section-title">✨ Какво предлага PerNik360</h2>
+
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon">🕶️</div>
+          <h3>VR разходки</h3>
+          <p>Разгледай забележителностите на Перник с 360° панорами.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🗺️</div>
+          <h3>Интерактивна карта</h3>
+          <p>Карта с пинове за забележителности в града и около него.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🏛️</div>
+          <h3>Забележителности</h3>
+          <p>История, факти и снимки на ключови обекти.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+  <section class="timeline-section">
+
+    <div class="section-header">
+      <h2>🕰️ История на Перник</h2>
+      <p>Поглед към развитието на града през вековете</p>
+    </div>
+
+
+    <div class="timeline">
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>6000г. пр.н.е.</h3>
+          <p>Първи следи от човешки живот в района на днешен Перник.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>IX век</h3>
+          <p>Перник влиза в границите на Първото българско царство.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>809г.</h3>
+          <p>Изградена е Пернишката крепост.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>1016г.</h3>
+          <p>Боляринът Кракра Пернишки успешно отблъсква византийските войски.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>1396г.</h3>
+          <p>Перник попада под османска власт.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>1878г.</h3>
+          <p>Освобождение на България - начало на нов етап в развитието на Перник.</p>
+        </div>
+      </div>
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>1881г.</h3>
+          <p>Започва проучване на въглищните находища край Перник.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>1891г.</h3>
+          <p>Открита е Държавната мина "Перник" - начало на минното дело.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>1893г.</h3>
+          <p>Пусната е железопътната линия Перник-София.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>1895г.</h3>
+          <p>В Перник светва първата електрическа крушка в България, 4години по-късно е построена първата
+            електроцентрала в България.</p>
+        </div>
+      </div>
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>1906г.</h3>
+          <p>Първата голяма миньорска стачка в Перник.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>1919г.</h3>
+          <p>Една от най-мащабните миньорски стачки в България.</p>
+        </div>
+      </div>
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>1929г.</h3>
+          <p>Перник официално е обявен за град.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>1932г.</h3>
+          <p>Построена е сградата на Минната дирекция.</p>
+        </div>
+      </div>
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>1951г.</h3>
+          <p>Започва изграждането на тежка индустрия и ТЕЦ "Република".</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>1966г.</h3>
+          <p>Провежда се първото издание на фестивала "Сурва".</p>
+        </div>
+      </div>
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3>1985г.</h3>
+          <p>Фестивалът "Сурва" придобива международна известност.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3>2012г.</h3>
+          <p>Силно земетресение (5.6/5.8 по Рихтер) удря Перник.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="site-footer">
+    © 2025 PerNik360 • Образователен проект
+  </p>
+
+  <script src="js/map.js"></script>
+
+</body>
+
+</html>
