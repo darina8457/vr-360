@@ -43,15 +43,34 @@
 
       <p>Проектът PerNik360 е създаден с образователна цел.</p>
 
-      <p><strong>📍 Град:</strong> Перник</p>
-      <p><strong>🎓 Автор:</strong> Дарина Иванова</p>
-      <p><strong>👩‍🏫 Ръководител:</strong> Снежанка Драгомирова</p>
+      <p><strong>🎓 Автор:</strong> Дарина Иванова - dari07iwanowa@gmail.com</p>
+      <p><strong>👩‍🏫 Ръководител:</strong> Снежанка Драгомирова - dragomirova71@gmail.com</p>
       <p><strong>💻 Тип:</strong> Уебсайт</p>
 
       <p class="contact-note">
         Ако имате въпроси или идеи – проектът подлежи на развитие 🙂
       </p>
     </div>
+
+    <section class="contact-section">
+
+      <h2>Свържете се с нас</h2>
+
+      <form id="contact-form" action="https://formspree.io/f/mgoljozr" method="POST" class="contact-form">
+
+        <input type="text" name="name" placeholder="Вашето име" required>
+
+        <input type="email" name="email" placeholder="Вашият имейл" required>
+
+        <textarea name="message" rows="5" placeholder="Вашето съобщение..." required></textarea>
+
+        <button type="submit">Изпрати</button>
+
+        <p id="form-status"></p>
+
+      </form>
+
+    </section>
 
     <section class="contact-grid">
 
@@ -67,7 +86,7 @@
 
       <div class="contact-card">
         <h3>💻 Технологии</h3>
-        <p>HTML, CSS, JavaScript, Leaflet, A-Frame</p>
+        <p>HTML, CSS, JavaScript, Leaflet, A-Frame, FormSpree</p>
       </div>
 
     </section>
@@ -87,8 +106,9 @@
       © 2025 PerNik360 • Образователен проект
     </p>
 
-
   </div>
+
+  <script src="js/contact.js"></script>
 
 </body>
 
