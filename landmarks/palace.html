@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Дворец на културата – Перник</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"> </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="../assets/images/favicon.jpg">
+
+
+</head>
+
+<body>
+
+  <div class="navbar">
+    <a href="../index.html" class="nav-left">
+      <img src="../assets/images/logo.png" class="nav-logo">
+      <span class="nav-title">Перник – туристически гид</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="../index.html">Начало</a>
+      <a href="../landmarks.html" class="active">Забележителности</a>
+      <a href="../pernik.html">Любопитни факти</a>
+      <a href="../transport.html">Транспорт</a>
+      <a href="../food.html">Места за хранене</a>
+      <a href="../contact.html">Контакти</a>
+      <a href="../vr-tour.html" class="nav-vr">
+        <i class="fa-solid fa-vr-cardboard"></i>
+      </a>
+    </div>
+  </div>
+
+
+  <!-- съдържание -->
+  <div class="w3-content page-content">
+
+    <div class="landmark-header">
+
+      <div class="landmark-map">
+        <div id="miniMap" data-active="palace"></div>
+      </div>
+
+      <div class="landmark-info">
+        <h1>Дворец на културата</h1>
+        <p class="subtitle">
+          дфгхйклкйхгф
+        </p>
+
+        <div class="header-buttons">
+          <a href="../landmarks.html" class="btn-back">← Всички забележителности</a>
+          <button class="btn-map" id="openMap"> 🗺️ Виж на картата</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="gallery">
+
+      <button class="gallery-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+
+      <div class="gallery-track" id="galleryTrack">
+        <img src="../assets/gallery/palace1" alt="Снимка 1">
+        <img src="../assets/gallery/palace2" alt="Снимка 2">
+        <img src="../assets/gallery/palace3" alt="Снимка 3">
+        <img src="../assets/gallery/palace4" alt="Снимка 4">
+        <img src="../assets/gallery/palace5" alt="Снимка 5">
+      </div>
+
+      <button class="gallery-btn next" onclick="moveSlide(1)">&#10095;</button>
+
+    </div>
+
+    <div class="landmark-text">
+      <p>
+        Място за допълнителен текст – история, интересни факти, легенди и т.н.
+      </p>
+    </div>
+
+    <!-- IMAGE / VR PLACEHOLDER -->
+    <div class="landmark-image">
+      <section class="vr-section">
+        <h2>360° виртуална разходка</h2>
+
+        <div class="vr-container">
+
+          <button class="vr-fullscreen-btn" onclick="openFullscreen(this)">
+            <i class="fa-solid fa-expand"></i>
+          </button>
+
+          <a-scene embedded id="vrScene" style="width: 100%; height: 500px;">
+
+            <a-sky src="../assets/panoramas/palace.jpg" rotation="0 -130 0"></a-sky>
+
+            <a-circle position="0 -1.6 0" rotation="-90 0 0" radius="0.8" color="#1e1e1e" opacity="1.0">
+            </a-circle>
+
+            <a-entity camera look-controls="pointerLockEnabled: true; reverseMouseDrag: false" wasd-controls
+              position="0 0 0">
+            </a-entity>
+
+          </a-scene>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </div>
+
+  <p class="site-footer">
+    © 2025 PerNik360 • Образователен проект
+  </p>
+
+  <script src="../js/mini-map.js"></script>
+
+  <!-- MAP OVERLAY -->
+  <div id="map-overlay">
+    <div class="map-overlay-content">
+      <button id="closeMap">✕</button>
+      <div id="overlay-map"></div>
+    </div>
+  </div>
+
+  <script src="../js/overlay-map.js"></script>
+  <script src="../js/vr.js"></script>
+  <script src="../js/gallery.js"></script>
+
+</body>
+
+</html>

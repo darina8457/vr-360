@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="bg">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Земенски манастир – Перник</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"> </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../assets/images/favicon.jpg">
+
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="../index.html" class="nav-left">
+            <img src="../assets/images/logo.png" class="nav-logo">
+            <span class="nav-title">Перник – туристически гид</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="../index.html">Начало</a>
+            <a href="../landmarks.html" class="active">Забележителности</a>
+            <a href="../pernik.html">Любопитни факти</a>
+            <a href="../transport.html">Транспорт</a>
+            <a href="../food.html">Места за хранене</a>
+            <a href="../contact.html">Контакти</a>
+            <a href="../vr-tour.html" class="nav-vr">
+                <i class="fa-solid fa-vr-cardboard"></i>
+            </a>
+        </div>
+    </div>
+
+
+    <!-- съдържание -->
+    <div class="w3-content page-content">
+
+        <div class="landmark-header">
+
+            <div class="landmark-map">
+                <div id="miniMap" data-active="zemen"></div>
+            </div>
+
+            <div class="landmark-info">
+                <h1>Земенски манастир</h1>
+                <p class="subtitle">
+                    дфгхйклкйхгф
+                </p>
+
+                <div class="header-buttons">
+                    <a href="../landmarks.html" class="btn-back">← Всички забележителности</a>
+                    <button class="btn-map" id="openMap"> 🗺️ Виж на картата</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Снимка -->
+        <div class="landmark-image">
+            <img src="../assets/images/zemen.jpg" alt="Земенски манастир">
+        </div>
+
+
+        <!-- ТЕКСТ -->
+        <div class="landmark-text">
+            <p>
+                Място за допълнителен текст – история, интересни факти, легенди и т.н.
+            </p>
+        </div>
+
+    </div>
+
+    <p class="site-footer">
+        © 2025 PerNik360 • Образователен проект
+    </p>
+
+    <script src="../js/mini-map.js"></script>
+
+    <!-- MAP OVERLAY -->
+    <div id="map-overlay">
+        <div class="map-overlay-content">
+            <button id="closeMap">✕</button>
+            <div id="overlay-map"></div>
+        </div>
+    </div>
+
+    <script src="../js/overlay-map.js"></script>
+
+</body>
+
+</html>
