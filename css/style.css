@@ -1008,6 +1008,20 @@ a-scene {
   right: 15px;
 }
 
+/* страница с турове*/
+/* Ефект при hover */
+.vr-item:hover {
+  transform: scale(1.05);
+}
+
+/* Миниатюра в кутийката */
+.vr-item img {
+  width: 100%;
+  height: 200px; /* фиксирана височина за всички миниатюри */
+  object-fit: cover; /* центрира изображението и го изрязва, за да пасне */
+  border-radius: 8px; /* леко заобляне */
+}
+
 .vr-page-title {
   text-align: center;
   margin: 60px auto 50px;
@@ -1022,11 +1036,14 @@ a-scene {
 .vr-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 20px;
   width: 90%;
   max-width: 1400px;
-  margin: auto;
+  margin: 0;
   margin-top: 40px;
+  padding: 20px; 
+  width: 100vw; 
+  box-sizing: border-box;
 }
 
 .vr-container a-scene {
@@ -1050,7 +1067,11 @@ a-scene {
 }
 
 .vr-item {
-  width: 100%;
+  background-color: #ffffff;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
 .vr-container a-scene {
@@ -1141,23 +1162,31 @@ a-scene {
 
   .navbar {
     flex-direction: column;
-    padding: 10px 15px;  
-    text-align: center;
+    padding: 8px 12px;
   }
 
   .nav-left {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+  }
+
+  .nav-left img {
+    height: 32px;
+  }
+
+  .nav-title {
+    font-size: 16px;
   }
 
   .nav-links {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px 15px;
+    gap: 6px 12px;
   }
 
   .nav-links a {
     font-size: 14px;
+    padding: 5px 8px;
   }
 
 }
@@ -1258,4 +1287,33 @@ a-scene {
 
 }
 
+@media (max-width: 768px) {
 
+  .landmark-header {
+    flex-direction: column;
+  }
+
+  .landmark-map {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  #miniMap {
+    width: 100%;
+    height: 200px;
+  }
+
+  .header-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+  }
+
+  .header-buttons a,
+  .header-buttons button {
+    width: 100%;
+    text-align: center;
+  }
+
+}
