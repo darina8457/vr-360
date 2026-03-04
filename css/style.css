@@ -1082,19 +1082,35 @@ a-scene {
   background: transparent !important;
 }
 
-.vr-fullscreen-btn {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  z-index: 10;
-  background: rgba(0,0,0,0.6);
-  color: white;
-  border: none;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  cursor: pointer;
+.nav-vr {
+  position: relative;
 }
+
+/* скрит текст */
+.nav-vr::after {
+  content: "VR турове";
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  background: #222;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 6px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+/* показване при hover */
+.nav-vr:hover::after {
+  opacity: 1;
+}
+
 
 .map-vr-btn {
   position: absolute;
