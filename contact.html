@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="icon" type="image/png" href="assets/images/favicon.jpg">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 
@@ -53,7 +54,6 @@
     </div>
 
     <section class="contact-section">
-
       <h2>Свържете се с нас</h2>
 
       <form id="contact-form" action="https://formspree.io/f/mgoljozr" method="POST" class="contact-form">
@@ -64,13 +64,15 @@
 
         <textarea name="message" rows="5" placeholder="Вашето съобщение..." required></textarea>
 
+        <!-- reCAPTCHA -->
+        <div class="g-recaptcha" data-sitekey="6Lev1YAsAAAAADFuIXCMFxhy_yaQYPuTGVgJBGrG"></div>
+
         <button type="submit">Изпрати</button>
 
         <p id="form-status"></p>
-
       </form>
-
     </section>
+
 
     <section class="contact-grid">
 
