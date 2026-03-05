@@ -1,6 +1,9 @@
+document.addEventListener("DOMContentLoaded", () => {
+
 const overlay = document.getElementById("vrOverlay");
-const scene = document.getElementById("scene");
 const closeBtn = document.getElementById("closeVR");
+const sky = document.getElementById("sky");
+const vrScene = document.getElementById("vrScene");
 
 const panoramas = {
   "ivan-rilski.jpg": "#pano-ivan-rilski",
@@ -12,29 +15,50 @@ const panoramas = {
   "park.jpg": "#pano-park"
 };
 
-if (overlay && scene && closeBtn) {
+// страницата с всички турове
+document.querySelectorAll(".vr-enter").forEach(btn => {
 
-  document.querySelectorAll(".vr-item img").forEach(img => {
-    img.addEventListener("click", () => {
-      const panoFile = img.closest(".vr-item").dataset.pano;
-      const sky = document.getElementById("sky");
+  btn.addEventListener("click", () => {
+
+    const panoFile = btn.dataset.pano;
+
+    if (overlay && sky) {
 
       sky.setAttribute("src", panoramas[panoFile]);
       overlay.style.display = "block";
-    });
+
+    }
   });
+});
+
+if (closeBtn) {
 
   closeBtn.addEventListener("click", () => {
+
     overlay.style.display = "none";
+
+    if (vrScene && vrScene.is("vr-mode")) {
+      vrScene.exitVR();
+    }
+
   });
-
 }
-
-const fullscreenBtn = document.getElementById("fullscreenBtn");
-const vrScene = document.getElementById("vrScene");
-
-fullscreenBtn.addEventListener("click", () => {
-  if (vrScene.requestFullscreen) vrScene.requestFullscreen();
-  else if (vrScene.webkitRequestFullscreen) vrScene.webkitRequestFullscreen();
-  else if (vrScene.msRequestFullscreen) vrScene.msRequestFullscreen();
 });
+
+// страниците с панорами
+const vrScene = document.getElementById("vrScene");
+const enterVRBtn = document.getElementById("enterVR");
+
+if (vrScene && enterVRBtn) {
+  enterVRBtn.addEventListener("click", () => {
+
+    const startVR = () => vrScene.enterVR();
+
+    if (vrScene.hasLoaded) {
+      startVR();
+    } else {
+      vrScene.addEventListener("loaded", startVR, { once: true });
+    }
+
+  });
+}
